@@ -1,6 +1,6 @@
 import React from "react";
 import { Download, Github, Mail } from "lucide-react";
-import { motion } from "motion/react";
+import { motion } from "motion/react"
 
 function Hero() {
   const scrollToContact = () => {
