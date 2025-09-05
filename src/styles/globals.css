@@ -1,5 +1,6 @@
 :root {
     --foreground: oklch(0.145 0 0);
+    --background: #ffffff;
     --muted-foreground: #717182;
     --primary: #7c3aed;
     --primary-foreground: #ffffff;
