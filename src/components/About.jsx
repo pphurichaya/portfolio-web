@@ -8,7 +8,7 @@ import {
   Briefcase,
   Mail,
   Phone,
-  Download
+  Download,
 } from "lucide-react";
 
 const scrollToContact = () => {
@@ -20,11 +20,11 @@ const scrollToContact = () => {
 
 const personalInfo = [
   { icon: User, label: "Name", value: "Phurichaya Isariyadol" },
-  { icon: MapPin, label: "Location", value: "Bangkok, TH" },
+  { icon: MapPin, label: "Location", value: "Bangkok, Thailand" },
   // { icon: Mail, label: "Email", value: "phurichaya.dear@gmail.com" },
   // { icon: Phone, label: "Phone", value: "095 679 7464" },
-  { icon: Briefcase, label: "Experience", value: "9 months" },
-  { icon: BadgeCheck, label: "Status", value: "available for work" },
+  { icon: Briefcase, label: "Experience", value: "9 months (internship)" },
+  { icon: BadgeCheck, label: "Status", value: "Open to Full-time" },
 ];
 
 const education = [
@@ -34,6 +34,11 @@ const education = [
     value: {
       university: "Mahanakorn University of Technology",
       degree: "Data Science and System Management Engineering",
+      graduated: "Graduated in 2025",
+      coursework: [
+        "A field related to Web Programming, Database Systems,",
+        "Data Structure, Software Engineering",
+      ],
     },
   },
 ];
@@ -81,6 +86,12 @@ const InfoItem = ({ icon: Icon, label, value }) => (
             <div className="text-sm text-muted-foreground mt-1">
               {value.degree}
             </div>
+            <div className="text-sm text-gray-400 mt-1">
+              {value.graduated} <br />
+              {Array.isArray(value.coursework)
+                ? value.coursework.map((line, i) => <div key={i}>{line}</div>)
+                : value.coursework}
+            </div>
           </>
         )}
       </div>
@@ -95,7 +106,7 @@ const InfoCard = () => (
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
     viewport={{ once: true }}
-    className="bg-card p-6 rounded-2xl shadow-lg border border-border hover:shadow-xl transition-all duration-500 mb-8"
+    className="bg-card p-6 rounded-2xl shadow-lg border border-border hover:shadow-xl transition-all duration-500 mb-8 "
   >
     <motion.div
       variants={containerVariants}
@@ -103,10 +114,23 @@ const InfoCard = () => (
       whileInView="visible"
       viewport={{ once: true }}
     >
-
       <h2 className="text-3xl sm:text-4xl lg:text-3xl text-primary font-bold mb-4 sm:mb-6">
-            Personal information
-          </h2>
+        Personal information
+      </h2>
+      <p className="text-lg sm:text-sm text-muted-foreground max-w-3xl mx-auto px-4">
+        I have dedicated time to learning and refining my skills in
+        frontend development including{" "}
+        <b>React.js, JavaScript, Tailwind CSS,</b> related technologies. I have
+        also built{" "}
+        <a href="#projects" className="font-bold underline hover:text-primary">
+          3 personal projects
+        </a>
+        <br />
+        <br />
+        Currently, I continue gaining hands-on frontend experience through new
+        projects, and I am fully ready to contribute actively and collaborate
+        with a team.
+      </p>
 
       {/* Separator */}
       <hr className="border-t border-border mt-6 mb-6" />
@@ -139,7 +163,7 @@ const InfoCard = () => (
           size="lg"
           className="w-full sm:w-auto flex items-center justify-center border-2 px-6 sm:px-8 py-3 text-base transition-all duration-200 hover:scale-105 min-h-[48px] rounded-full"
         >
-          <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5"/>
+          <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
           Download CV
         </button>
 
@@ -153,6 +177,9 @@ const InfoCard = () => (
           Work Together
         </button>
       </motion.div>
+      {/* <div className="text-xs text-muted-foreground mt-1">
+        Latest update: Aug 2025
+      </div> */}
     </motion.div>
   </motion.div>
 );
@@ -199,15 +226,15 @@ const About = () => {
             About Me
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
-            I'm a passionate developer with {experienceText} of experience
-            building web applications. I love turning complex problems into
-            simple, beautiful, and intuitive solutions.
+            I’m a recent graduate with 9 months of internship experience as a
+            Programmer (Odoo ERP). I’m passionate about web development and
+            eager to start my career as a <b>Junior Frontend Developer</b>
           </p>
         </motion.div>
 
         {/* Two Column Layout */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <Avatar />
+          <Avatar/>
           <InfoCard />
         </div>
       </div>
